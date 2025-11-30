@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be Glowy | إكسسوارات فاخرة</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;700&family=Playfair+Display:wght=700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+/* ====================================
+   الألوان: ذهبي (#CC9933)، بني غامق (#3A2300)، بيج ناعم (#FDF3EC)
+   ==================================== */
+
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background-color: #FDF3EC;
+    color: #3A2300;
+    line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+    max-width: 1280px; /* توسيع العرض قليلاً */
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* ========================
+   HEADER (شريط التنقل الفاخر)
+   ======================== */
+header {
+    background-color: #FDF3EC;
+    padding: 25px 0; /* زيادة البادينغ */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 8px rgba(58,35,0,0.08); /* ظل خفيف وناعم */
+    position: sticky; /* لجعل الشريط ثابت عند التمرير */
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; /* أكبر وأكثر فخامة */
+    font-weight: 900;
+    color: #CC9933;
+    letter-spacing: 2px; /* تباعد الحروف */
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    font-weight: 700; /* أكثر جرأة */
+    font-size: 19px;
+    transition: color 0.3s;
+    position: relative;
+}
+
+header nav ul li a::after { /* خط ذهبي تحت الروابط عند التمرير */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #CC9933;
+    bottom: -8px;
+    right: 0;
+    transition: width 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #3A2300; /* ثبات لون النص */
+}
+header nav ul li a:hover::after {
+    width: 100%; /* تمديد الخط عند التمرير */
+}
+
+/* التنسيق العام */
+section { 
+    padding: 100px 0; /* زيادة التباعد بين الأقسام */
+    text-align: center; 
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 55px; /* حجم ضخم جداً */
+    font-weight: 900;
+    margin-bottom: 70px;
+    color: #3A2300;
+    position: relative;
+}
+
+.section-title::after { /* إضافة خط فاصل ذهبي تحت العنوان */
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 4px;
+    background: #CC9933;
+    border-radius: 2px;
+}
+
+/* ========================
+   HERO SECTION (قسم البطل)
+   ======================== */
+.hero-section {
+    height: 90vh; /* ارتفاع أكبر */
+    background: linear-gradient(rgba(58, 35, 0, 0.7), rgba(58, 35, 0, 0.7)), 
+                url('https://via.placeholder.com/1920x1080/3A2300/FDF3EC?text=خلفية+مجوهرات+فاخرة');
+    background-size: cover;
+    background-position: center;
+    color: #FFD700;
+}
+
+.hero-content h1 { 
+    font-size: 75px; /* عنوان مذهل */
+    font-family: 'Playfair Display', serif; 
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    animation: fadeInDown 1s ease-out; /* إضافة تأثير حركة خفيف */
+}
+
+.hero-content p { 
+    font-size: 24px; 
+    color: #FDF3EC;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.cta-button { 
+    display: inline-block; 
+    margin-top: 40px; 
+    padding: 18px 50px; 
+    background: linear-gradient(45deg, #FFD700, #CC9933);
+    border-radius: 50px; 
+    font-weight: 800; 
+    color: #3A2300; 
+    font-size: 20px;
+    box-shadow: 0 10px 30px rgba(204, 153, 51, 0.5); 
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid #3A2300; /* حد بني لزيادة التباين */
+}
+
+.cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(204, 153, 51, 0.8);
+}
+
+/* ========================
+   PRODUCT CARDS (بطاقات المنتجات)
+   ======================== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* زيادة عرض البطاقة قليلاً */
+    gap: 35px; /* زيادة التباعد */
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 20px; /* حواف أكثر دائرية */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1); /* ظل أكثر بروزاً */
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+    border: 1px solid #EAE0D7;
+}
+
+.product-card:hover {
+    transform: translateY(-12px); /* رفع البطاقة بشكل واضح */
+    box-shadow: 0 25px 50px rgba(58, 35, 0, 0.25); /* ظل عميق جداً */
+}
+
+.product-card img { 
+    width: 100%; 
+    height: 320px; /* ارتفاع أكبر للصور */
+    object-fit: cover; 
+    transition: transform 0.5s;
+}
+
+.product-card:hover img {
+    transform: scale(1.05); /* تكبير الصورة عند التمرير */
+}
+
+.product-info { 
+    padding: 30px; 
+}
+
+.product-info h3 { 
+    font-size: 26px; 
+    font-family: 'Playfair Display', serif;
+    margin: 5px 0 15px; 
+}
+
+.product-info p { 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: #CC9933;
+}
+
+.buy-button { 
+    background: #3A2300;
+    color: #FFD700;
+    padding: 15px 35px;
+    font-size: 18px;
+    border-radius: 35px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.buy-button:hover {
+    background: #CC9933;
+    color: #3A2300;
+    transform: translateY(-2px);
+}
+
+/* ========================
+   ABOUT SECTION (قصتنا)
+   ======================== */
+.about-section { 
+    background: #EDE4DC; 
+}
+
+.about-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 60px; /* زيادة التباعد بين الصورة والنص */
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.about-image img { 
+    max-width: 500px; 
+    border-radius: 20px; 
+    box-shadow: 0 15px 40px rgba(0,0,0,.2); /* ظل ثلاثي الأبعاد */
+}
+
+.about-text {
+    flex: 1;
+    line-height: 2.0; /* تحسين القراءة */
+    font-size: 20px;
+}
+
+/* ========================
+   CONTACT SECTION (تواصل)
+   ======================== */
+.social-icons a { 
+    font-size: 45px; /* أيقونات أكبر */
+    margin: 0 20px;
+    color: #3A2300;
+    transition: transform 0.4s, color 0.4s;
+}
+
+.social-icons a:hover { 
+    color: #CC9933;
+    transform: scale(1.2) rotate(5deg); /* تأثير مميز */
+}
+
+/* ========================
+   FOOTER
+   ======================== */
+footer { 
+    background: #3A2300; 
+    color: #FDF3EC; 
+    padding: 50px 0; /* زيادة البادينغ */
+    font-size: 17px;
+}
+
+/* ========================
+   KEYFRAMES (تأثيرات حركية)
+   ======================== */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (max-width: 1024px) {
+    .section-title { font-size: 45px; }
+    .hero-content h1 { font-size: 60px; }
+    .product-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+    header nav ul { display: none; /* إخفاء قائمة التنقل في الهواتف (يفترض وجود زر قائمة منسدلة) */ }
+    header { justify-content: center; }
+    .section-title { font-size: 38px; margin-bottom: 50px; }
+    .hero-content h1 { font-size: 45px; }
+    .hero-content p { font-size: 20px; }
+    .about-container { flex-direction: column; text-align: center; gap: 30px; }
+    .about-image img { max-width: 90%; }
+}
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Be Glowy</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#about">قصتنا</a></li>
+                    <li><a href="#contact">تواصل</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>تألقي مع Be Glowy</h1>
+                <p>إكسسوارات فاخرة مصنوعة بحب وعناية لتضيف بريقاً فريداً على إطلالتك.</p>
+                <a href="#products" class="cta-button">شاهدي المجموعة الذهبية</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2 class="section-title">✨ منتجاتنا الفاخرة</h2>
+        <div class="container">
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <img src="https://i.ibb.co/XfSndQ3k/IMG-20251104-WA0081.jpg" alt="انسيال ورده">
+                    <div class="product-info">
+                        <h3>انسيال ورده</h3>
+                        <p>150 جنيه</p>
+                        <a href="https://wa.me/201119778773?text=أريد%20شراء%20انسيال%20ورده" class="buy-button">اشترِ الآن</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.ibb.co/wh6SSNyt/IMG-20251101-WA0078.jpg" alt="قلادة moonGlowy">
+                    <div class="product-info">
+                        <h3>قلادة moonGlowy</h3>
+                        <p>100 جنيه</p>
+                        <a href="https://wa.me/201119778773?text=أريد%20شراء%20قلادة%20moonGlowy" class="buy-button">اشترِ الآن</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.ibb.co/TqT582r3/IMG-20251031-WA0159.jpg" alt="انسيال فراشه">
+                    <div class="product-info">
+                        <h3>انسيال فراشه</h3>
+                        <p>130 جنيه</p>
+                        <a href="https://wa.me/201119778773?text=أريد%20شراء%20انسيال%20فراشه" class="buy-button">اشترِ الآن</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.ibb.co/hxLHSZqg/IMG-20251101-WA0129-1.jpg" alt="سلسله Egypt">
+                    <div class="product-info">
+                        <h3>سلسلهEpypt</h3>
+                        <p>180 جنيه</p>
+                        <a href="https://wa.me/201119778773?text=أريد%20شراء%20سلسله%20Epypt" class="buy-button">اشترِ الآن</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.ibb.co/whpKknK5/IMG-20251030-WA0149.jpg" alt="حلق فراشه">
+                    <div class="product-info">
+                        <h3>حلق فراشه</h3>
+                        <p>120 جنيه</p>
+                        <a href="https://wa.me/201119778773?text=أريد%20شراء%20حلق%20فراشه" class="buy-button">اشترِ الآن</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i.ibb.co/rK6snCnS/IMG-20251030-WA0145.jpg" alt="خاتم هلال">
+                    <div class="product-info">
+                        <h3>خاتم هلال</h3>
+                        <p>60 جنيه</p>
+                        <a href="https://wa.me/201119778773?text=أريد%20شراء%20خاتم%20هلال" class="buy-button">اشترِ الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <h2 class="section-title">✨ قصتنا</h2>
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="data:image/jpeg;base64,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" alt="صورة عن Be Glowy">
+            </div>
+            <div class="about-text">
+                <p>في Be Glowy، نؤمن بأن الإكسسوارات ليست مجرد قطع، بل هي جزء من هويتك. كل قطعة نصنعها مصممة لتعكس أناقة وجودة لا تُضاهى. هدفنا هو أن نقدم لكِ بريقاً يدوم، يمزج بين التصميم العصري والمواد الفاخرة، لتنعمي بإطلالة متكاملة في كل مناسبة.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <div class="container">
+            <p style="font-size: 18px;">نحن هنا للإجابة على جميع استفساراتك وتلقي طلباتك بكل سرور. تواصلي معنا عبر قنواتنا:</p>
+            <div class="social-icons">
+                <a href="https://wa.me/201119778773" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/share/1FgqkaVXTB/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/be_glowystore?igsh=cjNjeHVrYnNhdW1r-instagram-account" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p style="font-weight: bold; margin-top: 20px;">رقم الهاتف: 01119778773</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Be Glowy. جميع الحقوق محفوظة.</p>
+            <p>صمم بـ ❤️ للأناقة والبريق من مصر.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
